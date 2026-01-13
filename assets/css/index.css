@@ -1,0 +1,577 @@
+:root{
+    --blue:#163a73;
+    --blue2:#0a1f44;
+    --give:#e8b24f;
+    --involved:#1f5aa8;
+
+    --max:1200px;
+    --pad:clamp(16px,3vw,28px);
+    --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+}
+
+*{ box-sizing:border-box; }
+body{
+    margin:0;
+    font-family:var(--font);
+    background:#000;
+}
+a{ text-decoration:none; color:inherit; }
+
+.container{
+    width:min(var(--max), calc(100% - 2*var(--pad)));
+    margin:0 auto;
+}
+
+.hero{
+    position:relative;
+    min-height:92vh;
+    overflow:hidden;
+    background:#000;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+            linear-gradient(
+                    90deg,
+                    rgba(0,0,0,.75) 0%,
+                    rgba(0,0,0,.45) 35%,
+                    rgba(0,0,0,.15) 65%,
+                    rgba(0,0,0,.05) 100%
+            ),
+            url("../img/homepage1.jpg")
+            center/cover no-repeat;
+    z-index:0;
+}
+
+/* RINGS — pushed further RIGHT */
+.hero-rings{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    z-index:1;
+}
+
+.hero-rings::before{
+    content:"";
+    position:absolute;
+    right:-28%;
+    top:-18%;
+    width:78vmin;
+    height:78vmin;
+    border-radius:50%;
+    background:
+            radial-gradient(circle,
+            transparent 0 32%,
+            rgba(22,58,115,.85) 32% 42%,
+            transparent 42% 55%,
+            rgba(255,255,255,.35) 55% 60%,
+            transparent 60% 100%);
+}
+
+.hero-rings::after{
+    content:"";
+    position:absolute;
+    right:-14%;
+    bottom:-30%;
+    width:56vmin;
+    height:56vmin;
+    border-radius:50%;
+    background:
+            radial-gradient(circle,
+            transparent 0 38%,
+            rgba(22,58,115,.9) 38% 48%,
+            transparent 48% 100%);
+}
+
+.hero-top{
+    position:relative;
+    z-index:3;
+    padding:18px 0;
+}
+
+.top-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.brand{
+    display:flex;
+    gap:14px;
+    color:#fff;
+}
+
+.logo{
+    width:46px;
+    height:46px;
+    background:#fff;
+    border-radius:12px;
+    display:grid;
+    place-items:center;
+}
+
+.brand-text strong{
+    font-size:20px;
+}
+.brand-text span{
+    font-size:12px;
+    opacity:.8;
+}
+
+.nav{
+    display:flex;
+    gap:18px;
+    color:#fff;
+    font-weight:800;
+    font-size:13px;
+    text-transform:uppercase;
+}
+
+.nav a{
+    opacity:.9;
+}
+.nav a:hover{ opacity:1; }
+
+.top-actions{
+    display:flex;
+    gap:12px;
+}
+
+.btn{
+    height:42px;
+    padding:0 18px;
+    font-weight:900;
+    font-size:13px;
+    text-transform:uppercase;
+    border:none;
+}
+.btn.give{ background:var(--give); }
+.btn.involved{ background:var(--involved); color:#fff; }
+
+.hero-content{
+    position:relative;
+    z-index:3;
+    padding:72px 0;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns: minmax(320px, 620px) 1fr;
+    align-items:start;
+}
+.hero-left{
+    grid-column:1;
+}
+
+.headline{
+    color:#fff;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size:clamp(48px, 7vw, 110px);
+    line-height:.92;
+    letter-spacing:.8px;
+    text-transform:uppercase;
+    max-width:12ch;
+    margin:0;
+}
+
+@media (max-width:900px){
+    .nav{ display:none; }
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero-rings{ opacity:.6; }
+}
+
+/* ================= HOME SECTIONS ================= */
+
+.home-section{
+    padding: 96px 0;
+    background:#ffffff;
+}
+
+.home-section h2{
+    margin:0 0 12px;
+    font-size: 38px;
+    font-weight: 900;
+    letter-spacing: .2px;
+    color:#0a1f44;
+}
+
+/* Screen-reader only helper */
+.sr-only{
+    position:absolute;
+    width:1px;
+    height:1px;
+    padding:0;
+    margin:-1px;
+    overflow:hidden;
+    clip:rect(0,0,0,0);
+    white-space:nowrap;
+    border:0;
+}
+
+/* ===================== Footer (based on new york city website design) ===================== */
+
+.nyc-footer{
+    background:#000;
+    color:#fff;
+    margin-top: 90px;
+}
+
+/* Newsletter */
+.nyc-newsletter{
+    padding: 78px 0 56px;
+    background:#000;
+}
+
+.nyc-newsletter-inner{
+    display:grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 48px;
+    align-items:start;
+}
+
+.nyc-newsletter-left h3{
+    margin:0 0 14px;
+    font-size: clamp(46px, 6vw, 88px);
+    letter-spacing:.5px;
+    font-weight: 950;
+}
+
+.nyc-newsletter-left p{
+    margin:0;
+    max-width: 55ch;
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255,255,255,.82);
+}
+
+/* Newsletter form */
+.nyc-newsletter-form{
+    display:flex;
+    flex-direction:column;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.nyc-newsletter-form label{
+    font-weight: 850;
+    color: rgba(255,255,255,.92);
+}
+
+.nyc-newsletter-form input{
+    height: 54px;
+    padding: 0 14px;
+    border-radius: 0;                 /* NYC vibe = sharp */
+    background:#000;
+    border: 2px solid rgba(255,255,255,.55);
+    color:#fff;
+    outline:none;
+}
+
+.nyc-newsletter-form input:focus{
+    border-color: rgba(232,178,79,.9);
+    box-shadow: 0 0 0 4px rgba(232,178,79,.18);
+}
+
+.nyc-newsletter-form button{
+    height: 56px;
+    border: 0;
+    background:#fff;
+    color:#000;
+    font-weight: 950;
+    letter-spacing:.6px;
+    cursor:pointer;
+}
+
+.nyc-newsletter-form button:hover{
+    filter: brightness(.94);
+}
+
+.nyc-divider{
+    height:1px;
+    background: rgba(255,255,255,.25);
+}
+
+/* Main footer layout */
+.nyc-footer-main{
+    padding: 64px 0 60px;
+    display:grid;
+    grid-template-columns: 1.25fr 1fr 1fr 1fr;
+    gap: 70px;
+    align-items:start;
+}
+
+/* Brand left */
+.nyc-footer-brand{
+    display:flex;
+    gap: 20px;
+    align-items:flex-start;
+}
+
+.nyc-logo{
+    color:#fff;
+    opacity: 1;
+}
+
+.nyc-brand-title{
+    font-weight: 950;
+    letter-spacing: .6px;
+    line-height: .95;
+    font-size: 28px;
+}
+
+/* Columns */
+.nyc-col-head{
+    color: rgba(232,178,79,1);
+    font-weight: 950;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+.nyc-col a{
+    display:block;
+    padding: 9px 0;
+    color: rgba(255,255,255,.86);
+    text-decoration:none;
+    font-size: 16px;
+}
+
+.nyc-col a:hover{
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* Bottom */
+.nyc-footer-bottom{
+    padding: 18px 0 22px;
+    color: rgba(255,255,255,.75);
+    font-size: 14px;
+}
+
+.nyc-bottom-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 14px;
+    flex-wrap:wrap;
+}
+
+.nyc-bottom-links{
+    display:flex;
+    align-items:center;
+    gap: 10px;
+    flex-wrap:wrap;
+}
+
+.nyc-bottom-links a{
+    color: rgba(255,255,255,.75);
+    text-decoration:none;
+    font-weight: 800;
+}
+
+.nyc-bottom-links a:hover{
+    color:#fff;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.nyc-bottom-links .dot{ opacity:.5; }
+
+/* Responsive */
+@media (max-width: 980px){
+    .nyc-newsletter-inner{ grid-template-columns: 1fr; }
+    .nyc-footer-main{ grid-template-columns: 1fr 1fr; gap: 46px; }
+}
+
+@media (max-width: 620px){
+    .nyc-footer-main{ grid-template-columns: 1fr; }
+    .nyc-brand-title{ font-size: 24px; }
+}
+
+/* ================= SOCIAL ICONS (NYC STYLE) ================= */
+
+/* NYC-style social row (NO boxes) */
+.nyc-social {
+    display: flex;
+    align-items: center;
+    gap: 28px;                 /* spacing like NYC */
+}
+
+.nyc-social a {
+    background: transparent !important;
+    border: 0 !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    color: #fff;
+    opacity: .95;
+    transition: transform .2s ease, opacity .2s ease;
+}
+
+.nyc-social a:hover {
+    transform: translateY(-2px);
+    opacity: 1;
+}
+
+.nyc-social svg {
+    width: auto !important;
+    height: 36px !important;
+    display: block;
+    overflow: visible !important;
+}
+
+.nyc-social a[aria-label="Instagram"]:hover { background:#E1306C; }
+.nyc-social a[aria-label="Facebook"]:hover  { background:#1877F2; }
+.nyc-social a[aria-label="TikTok"]:hover    { background:#000; }
+.nyc-social a[aria-label="YouTube"]:hover   { background:#FF0000; }
+
+.nyc-social .ig svg { fill: none; }
+.nyc-social a:not(.ig) svg { fill: currentColor; }
+
+
+/* ================= TSA FOOTER ================= */
+
+.tsa-footer{
+    margin-top: 56px;
+    padding: 28px 0;
+    background:#000;
+}
+
+.tsa-lines{
+    height:3px;
+    background:#c62828; /* TSA red */
+    opacity:.95;
+}
+
+.tsa-lines.top{
+    margin-bottom:22px;
+}
+
+.tsa-lines.bottom{
+    margin-top:22px;
+}
+
+.tsa-content{
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 24px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+}
+
+/* Text block */
+.tsa-text{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+
+.tsa-state{
+    font-size:26px;
+    font-weight:900;
+    letter-spacing:.6px;
+    color:#ffffff;
+    text-transform:uppercase;
+}
+
+.tsa-name{
+    font-size:20px;
+    font-weight:800;
+    letter-spacing:.4px;
+    color:#ffffff;
+    opacity:.92;
+}
+
+/* Logo */
+.tsa-logo{
+    height:56px;
+    width:auto;
+    object-fit:contain;
+    filter: brightness(1);
+}
+
+/* Responsive */
+@media (max-width: 720px){
+    .tsa-content{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .tsa-logo{
+        margin-top:12px;
+        height:48px;
+    }
+
+    .tsa-state{
+        font-size:22px;
+    }
+
+    .tsa-name{
+        font-size:18px;
+    }
+}
+
+
+
+/* ================= TSA BADGE STYLE ================= */
+
+.tsa-badge{
+    max-width: 320px;
+    margin-bottom: 26px;
+    background:#1f3a8a; /* tsa blue color */
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 10px 28px rgba(0,0,0,.45);
+}
+
+/* Red bars */
+.tsa-badge-top,
+.tsa-badge-bottom{
+    background:#c62828; /* tsa right color */
+    color:#ffffff;
+    text-align:center;
+    font-weight:900;
+    letter-spacing:.8px;
+    text-transform:uppercase;
+    padding:10px 12px;
+    font-size:14px;
+}
+
+/* Logo area */
+.tsa-badge-logo{
+    background:#1f3a8a;
+    padding:18px 14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.tsa-badge-logo img{
+    max-width: 100%;
+    height: auto;
+    display:block;
+}
+
+/* Responsive */
+@media (max-width: 720px){
+    .tsa-badge{
+        max-width: 280px;
+    }
+
+    .tsa-badge-top,
+    .tsa-badge-bottom{
+        font-size:13px;
+    }
+}
