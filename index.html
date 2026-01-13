@@ -56,7 +56,6 @@
 <section class="home-section" id="services">
     <div class="container">
         <div class="section-head">
-            <div class="section-kicker">Start here</div>
             <h2>Welcome</h2>
             <p class="section-lead">
                Hello World!
@@ -68,7 +67,6 @@
 
 <footer class="nyc-footer" id="footer">
 
-    <!-- Newsletter strip (like NYC) -->
     <section class="nyc-newsletter">
         <div class="container nyc-newsletter-inner">
             <div class="nyc-newsletter-left">
@@ -79,22 +77,68 @@
                 </p>
             </div>
 
-            <form class="nyc-newsletter-form" action="#" method="post">
+            <form class="nyc-newsletter-form" id="newsletterForm" action="#" method="post">
                 <label for="nycEmail">*Email</label>
-                <input id="nycEmail" type="email" placeholder="" required>
-                <button type="submit">SIGN UP</button>
+                <input id="nycEmail" name="email" type="email" required>
+
+                <div class="nyc-newsletter-extra" id="newsletterExtra" aria-hidden="true">
+                    <label for="nycName">*Full Name</label>
+                    <input id="nycName" name="name" type="text" autocomplete="name">
+
+                    <div class="nyc-newsletter-row2">
+                        <div class="nyc-country">
+                            <label for="nycCountryInput">*Country</label>
+
+                            <!-- visible input (search) -->
+                            <div class="nyc-countrybox" id="countryBox">
+                                <input
+                                        id="nycCountryInput"
+                                        type="text"
+                                        placeholder="Select a country"
+                                        autocomplete="off"
+                                        aria-expanded="false"
+                                />
+                                <button type="button" class="nyc-country-toggle" aria-label="Toggle country list">▾</button>
+                            </div>
+
+                            <!-- real submitted value -->
+                            <input type="hidden" id="nycCountryHidden" name="country" required>
+
+                            <!-- dropdown -->
+                            <div class="nyc-countrylist" id="countryList" role="listbox" aria-hidden="true"></div>
+                        </div>
+
+
+                        <div>
+                            <label for="nycZip">*Zip Code</label>
+                            <input id="nycZip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code">
+                        </div>
+                    </div>
+
+                    <label for="nycPhone">Phone Number (optional)</label>
+                    <input id="nycPhone" name="phone" type="tel" autocomplete="tel">
+
+                    <button type="submit" class="nyc-submit">SUBSCRIBE</button>
+
+                    <div class="nyc-legal">
+                        <p>By clicking sign up, you are agreeing to the <a href="#" target="_blank" rel="noopener">Terms and Conditions</a>.</p>
+                        <p class="muted">
+                            Message and data rates may apply. By providing my mobile number, I agree to receive marketing text messages
+                            with updates and special offers. Reply STOP to unsubscribe.
+                        </p>
+                    </div>
+                </div>
+
+                <button type="button" class="nyc-primary-btn" id="newsletterPrimaryBtn">SIGN UP</button>
             </form>
         </div>
     </section>
 
     <div class="nyc-divider"></div>
 
-    <!-- Main footer links -->
     <div class="container nyc-footer-main">
 
-        <!-- LEFT COLUMN (TSA + social) -->
         <div class="nyc-left-stack">
-            <!-- TSA BADGE -->
             <div class="tsa-badge">
                 <div class="tsa-badge-top">North Carolina</div>
 
@@ -105,44 +149,37 @@
                 <div class="tsa-badge-bottom">Technology Student Association</div>
             </div>
 
-            <!-- Social icons (move here) -->
-            <!-- Main footer links -->
-            <div class="container nyc-footer-main">
+            <div class="nyc-social nyc-social--nyc">
+                <a href="#" aria-label="Instagram" class="ig">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"></circle>
+                    </svg>
+                </a>
 
-                <!-- Left logo/brand -->
-                <div class="nyc-social nyc-social--nyc">
-                    <a href="#" aria-label="Instagram" class="ig">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="3" width="18" height="18" rx="5"></rect>
-                            <circle cx="12" cy="12" r="4"></circle>
-                            <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"></circle>
-                        </svg>
-                    </a>
+                <a href="#" aria-label="Facebook" class="fb">
+                    <svg viewBox="0 0 320 512" aria-hidden="true">
+                        <path d="M279.14 288l14.22-92.66h-88.91V117.78c0-25.35 12.42-50.06 52.24-50.06H295V6.26S259.36 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.2V288z"/>
+                    </svg>
+                </a>
 
-                    <a href="#" aria-label="Facebook" class="fb">
-                        <svg viewBox="0 0 320 512" aria-hidden="true">
-                            <path d="M279.14 288l14.22-92.66h-88.91V117.78c0-25.35 12.42-50.06 52.24-50.06H295V6.26S259.36 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.2V288z"/>
-                        </svg>
-                    </a>
-
-                    <a href="#" aria-label="TikTok" class="tt">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M16.5 3c.6 2.5 2.4 4.3 5 4.7V11c-1.9 0-3.6-.6-5-1.7v5.4 c0 3.2-2.6 5.8-5.8 5.8S4.9 18 4.9 14.9c0-3.1 2.6-5.6 5.8-5.6 .4 0 .8 0 1.2.1v3.2c-.3-.1-.6-.2-1.2-.2-1.3 0-2.4 1-2.4 2.4 0 1.3 1.1 2.4 2.4 2.4s2.4-1.1 2.4-2.4V3z"/>
-                        </svg>
-                    </a>
-                    <a href="#" aria-label="YouTube" class="yt">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M23 7.6s-.2-1.8-.9-2.6c-.9-.9-1.9-.9-2.4-1C16.6 3.7 12 3.7 12 3.7s-4.6 0-7.7.3c-.5.1-1.5.1-2.4 1-.7.8-.9 2.6-.9 2.6S1 9.6 1 11.5v1.9c0 1.9.2 3.9.2 3.9s.2 1.8.9 2.6c.9.9 2.1.9 2.6 1 1.9.2 7.3.3 7.3.3s4.6 0 7.7-.3c.5-.1 1.5-.1 2.4-1 .7-.8.9-2.6.9-2.6s.2-2 .2-3.9v-1.9c0-1.9-.2-3.9-.2-3.9z"/>
-                            <path d="M10 9.2v5.6L15.5 12 10 9.2z" fill="#000"/>
-                        </svg>
-                    </a>
-
-                </div>
+                <a href="#" aria-label="TikTok" class="tt">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M16.5 3c.6 2.5 2.4 4.3 5 4.7V11c-1.9 0-3.6-.6-5-1.7v5.4 c0 3.2-2.6 5.8-5.8 5.8S4.9 18 4.9 14.9c0-3.1 2.6-5.6 5.8-5.6 .4 0 .8 0 1.2.1v3.2c-.3-.1-.6-.2-1.2-.2-1.3 0-2.4 1-2.4 2.4 0 1.3 1.1 2.4 2.4 2.4s2.4-1.1 2.4-2.4V3z"/>
+                    </svg>
+                </a>
+                <a href="#" aria-label="YouTube" class="yt">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M23 7.6s-.2-1.8-.9-2.6c-.9-.9-1.9-.9-2.4-1C16.6 3.7 12 3.7 12 3.7s-4.6 0-7.7.3c-.5.1-1.5.1-2.4 1-.7.8-.9 2.6-.9 2.6S1 9.6 1 11.5v1.9c0 1.9.2 3.9.2 3.9s.2 1.8.9 2.6c.9.9 2.1.9 2.6 1 1.9.2 7.3.3 7.3.3s4.6 0 7.7-.3c.5-.1 1.5-.1 2.4-1 .7-.8.9-2.6.9-2.6s.2-2 .2-3.9v-1.9c0-1.9-.2-3.9-.2-3.9z"/>
+                        <path d="M10 9.2v5.6L15.5 12 10 9.2z" fill="#000"/>
+                    </svg>
+                </a>
 
             </div>
+
         </div>
 
-        <!-- Columns -->
         <nav class="nyc-col">
             <div class="nyc-col-head">POPULAR TOPICS</div>
             <a href="#directory">Food Assistance</a>
@@ -175,7 +212,6 @@
 
     </div>
 
-    <!-- Bottom bar -->
     <div class="nyc-footer-bottom">
         <div class="container nyc-bottom-inner">
             <span>© <span id="year"></span> Charlotte Resource Hub. All rights reserved.</span>
@@ -190,10 +226,119 @@
     </div>
 
 </footer>
-
 <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    (function () {
+
+        /* ================= NEWSLETTER EXPAND ================= */
+        const form    = document.getElementById('newsletterForm');
+        const email   = document.getElementById('nycEmail');
+        const extra   = document.getElementById('newsletterExtra');
+        const section = document.querySelector('.nyc-newsletter');
+        const btn     = document.getElementById('newsletterPrimaryBtn');
+
+        if (!form || !email || !extra || !section) return;
+
+        function looksLikeEmail(v){
+            v = (v || '').trim();
+            return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+        }
+
+        function setExpanded(on){
+            form.classList.toggle('is-expanded', on);
+            section.classList.toggle('is-expanded', on);
+            extra.setAttribute('aria-hidden', String(!on));
+        }
+
+        email.addEventListener('input', () => {
+            setExpanded(looksLikeEmail(email.value));
+        });
+
+        if (btn) {
+            btn.addEventListener('click', () => {
+                setExpanded(true);
+                email.focus();
+            });
+        }
+
+        /* ================= COUNTRY DROPDOWN (REAL FLAGS) ================= */
+
+        const input  = document.getElementById("nycCountryInput");
+        const hidden = document.getElementById("nycCountryHidden");
+        const list   = document.getElementById("countryList");
+        const box    = document.getElementById("countryBox");
+
+        if (!input || !hidden || !list || !box) return;
+
+        const FLAG = code => `https://flagcdn.com/w20/${code.toLowerCase()}.png`;
+
+        const countries = [
+            ["US","United States"],["CA","Canada"],["MX","Mexico"],["GB","United Kingdom"],
+            ["FR","France"],["DE","Germany"],["UA","Ukraine"],["ES","Spain"],
+            ["IT","Italy"],["PL","Poland"],["RO","Romania"],["TR","Turkey"],
+            ["BR","Brazil"],["AR","Argentina"],["CO","Colombia"],["CL","Chile"],
+            ["IN","India"],["PK","Pakistan"],["CN","China"],["JP","Japan"],
+            ["KR","South Korea"],["VN","Vietnam"],["AU","Australia"],["NZ","New Zealand"],
+            ["ZA","South Africa"],["NG","Nigeria"],["EG","Egypt"],["SA","Saudi Arabia"],
+            ["AE","United Arab Emirates"],["IL","Israel"]
+        ];
+
+        function render(filter = "") {
+            const q = filter.toLowerCase();
+            list.innerHTML = "";
+
+            const filtered = countries.filter(
+                ([code, name]) =>
+                    name.toLowerCase().includes(q) || code.toLowerCase().includes(q)
+            );
+
+            filtered.forEach(([code, name]) => {
+                const item = document.createElement("div");
+                item.className = "nyc-countryitem";
+                item.innerHTML = `
+        <img class="nyc-flag" src="${FLAG(code)}" alt="">
+        <span>${name}</span>
+      `;
+
+                item.addEventListener("click", () => {
+                    input.value = name;
+                    hidden.value = name;
+                    close();
+                });
+
+                list.appendChild(item);
+            });
+
+            if (!filtered.length) {
+                const empty = document.createElement("div");
+                empty.className = "nyc-countryitem";
+                empty.style.opacity = ".6";
+                empty.textContent = "No matches";
+                list.appendChild(empty);
+            }
+        }
+
+        function open() {
+            list.classList.add("open");
+            render(input.value);
+        }
+
+        function close() {
+            list.classList.remove("open");
+        }
+
+        input.addEventListener("focus", open);
+        input.addEventListener("click", open);
+        input.addEventListener("input", () => render(input.value));
+
+        document.addEventListener("click", e => {
+            if (!box.contains(e.target) && !list.contains(e.target)) close();
+        });
+
+        render("");
+
+    })();
 </script>
+
 
 </body>
 </html>
