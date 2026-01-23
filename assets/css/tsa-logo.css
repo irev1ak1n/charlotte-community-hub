@@ -1,0 +1,134 @@
+
+.tsa-footer{
+    margin-top: 56px;
+    padding: 28px 0;
+    background:#000;
+}
+
+.tsa-lines{
+    height:3px;
+    background:#c62828;
+    opacity:.95;
+}
+
+.tsa-lines.top{
+    margin-bottom:22px;
+}
+
+.tsa-lines.bottom{
+    margin-top:22px;
+}
+
+.tsa-content{
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 24px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+}
+
+/* Text block */
+.tsa-text{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+
+.tsa-state{
+    font-size:26px;
+    font-weight:900;
+    letter-spacing:.6px;
+    color:#ffffff;
+    text-transform:uppercase;
+}
+
+.tsa-name{
+    font-size:20px;
+    font-weight:800;
+    letter-spacing:.4px;
+    color:#ffffff;
+    opacity:.92;
+}
+
+/* Logo */
+.tsa-logo{
+    height:56px;
+    width:auto;
+    object-fit:contain;
+    filter: brightness(1);
+}
+
+/* Responsive */
+@media (max-width: 720px){
+    .tsa-content{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .tsa-logo{
+        margin-top:12px;
+        height:48px;
+    }
+
+    .tsa-state{
+        font-size:22px;
+    }
+
+    .tsa-name{
+        font-size:18px;
+    }
+}
+
+/* ================= TSA BADGE STYLE ================= */
+
+.tsa-badge{
+    max-width: 320px;
+    margin-bottom: 26px;
+    background:#1f3a8a;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 10px 28px rgba(0,0,0,.45);
+}
+
+/* Red bars */
+.tsa-badge-top,
+.tsa-badge-bottom{
+    background:#c62828;
+    color:#ffffff;
+    text-align:center;
+    font-weight:900;
+    letter-spacing:.8px;
+    text-transform:uppercase;
+    padding:10px 12px;
+    font-size:14px;
+}
+
+/* Logo area */
+.tsa-badge-logo{
+    background:#1f3a8a;
+    padding:18px 14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.tsa-badge-logo img{
+    max-width: 100%;
+    height: auto;
+    display:block;
+}
+
+/* Responsive */
+@media (max-width: 720px){
+    .tsa-badge{
+        max-width: 280px;
+    }
+
+    .tsa-badge-top,
+    .tsa-badge-bottom{
+        font-size:13px;
+    }
+}

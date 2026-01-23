@@ -4,6 +4,10 @@
     --give:#e8b24f;
     --involved:#1f5aa8;
 
+    --nyc-border: rgba(255,255,255,.38);
+    --nyc-border-hover: rgba(255,255,255,.55);
+    --nyc-border-focus: rgba(255,255,255,.85);
+
     --max:1200px;
     --pad:clamp(16px,3vw,28px);
     --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
@@ -211,118 +215,9 @@ a{ text-decoration:none; color:inherit; }
     border:0;
 }
 
-/* ===================== Footer (based on new york city website design) ===================== */
 
-.nyc-footer{
-    background:#000;
-    color:#fff;
-    margin-top: 65px;
-}
 
-/* ===== NEWSLETTER (improved) ===== */
-.nyc-newsletter{
-    padding: 70px 0 54px;
-    background:#000;
-    position: relative;
-    overflow:hidden;
-}
-
-/* subtle depth (no animation, no distraction) */
-.nyc-newsletter::before{
-    content:"";
-    position:absolute;
-    inset:-2px;
-    background:
-            radial-gradient(900px 380px at 18% 40%, rgba(255,255,255,.08), transparent 60%),
-            radial-gradient(780px 320px at 85% 25%, rgba(232,178,79,.10), transparent 62%),
-            linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,0) 40%);
-    pointer-events:none;
-}
-
-.nyc-newsletter-inner{
-    position: relative;
-    display:grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 72px;
-    align-items:start;
-}
-
-/* title: bold but not huge */
-.nyc-newsletter-left h3{
-    margin: 0 0 16px;
-    font-family: Helvetica, Arial, "Segoe UI", sans-serif;
-    font-size: clamp(40px, 4.4vw, 68px);
-    line-height: 1;
-    font-weight: 600;
-    letter-spacing: 0;
-    text-transform: uppercase;
-    color: #ffffff;
-
-    /* THIS makes the letters wider like NYC */
-    transform: scaleX(1.1);
-    transform-origin: left center;
-}
-
-/* paragraph: strong, readable, not “chunky” */
-.nyc-newsletter-left p {
-    margin: 0;
-    max-width: 56ch;
-    font-size: clamp(18px, 1.7vw, 24px);
-    line-height: 1.32;
-    font-weight: 650;
-    letter-spacing: 0;
-    color: rgba(255, 255, 255, .95);
-}
-
-/* Newsletter form */
-.nyc-newsletter-form{
-    display:flex;
-    flex-direction:column;
-    gap: 12px;
-    margin-top: 10px;
-}
-
-.nyc-newsletter-form label{
-    font-weight: 850;
-    color: rgba(255,255,255,.92);
-}
-
-.nyc-newsletter-form input{
-    height: 54px;
-    padding: 0 14px;
-    border-radius: 0;                 /* NYC vibe = sharp */
-    background:#000;
-    border: 2px solid rgba(255,255,255,.55);
-    color:#fff;
-    outline:none;
-}
-
-.nyc-newsletter-form input:focus{
-    border-color: rgba(232,178,79,.9);
-    box-shadow: 0 0 0 4px rgba(232,178,79,.18);
-}
-
-.nyc-newsletter-form button{
-    height: 56px;
-    border: 0;
-    background:#fff;
-    color:#000;
-    font-weight: 950;
-    letter-spacing:.6px;
-    cursor:pointer;
-}
-
-.nyc-newsletter-form button:hover{
-    filter: brightness(.94);
-}
-
-.nyc-divider{
-    height: 1px;
-    background: rgba(255,255,255,.85);
-    box-shadow: 0 0 0.5px rgba(255,255,255,.6);
-    margin: 0 auto;
-    width: min(1200px, calc(100% - 160px));
-}
+/* --------------------------------------------------------------------------------- */
 
 /* Main footer layout */
 .nyc-footer-main{
@@ -422,6 +317,361 @@ a{ text-decoration:none; color:inherit; }
     .nyc-brand-title{ font-size: 24px; }
 }
 
+
+/* ===================== Footer (based on new york city website design) ===================== */
+
+.nyc-footer{
+    background:#000;
+    color:#fff;
+    margin-top:65px;
+}
+
+/* ===== NEWSLETTER ===== */
+.nyc-newsletter{
+    padding:70px 0 54px;
+    background:#000;
+    position:relative;
+    overflow:hidden;
+}
+
+/* subtle depth */
+.nyc-newsletter::before{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    background:
+            radial-gradient(900px 380px at 18% 40%, rgba(255,255,255,.08), transparent 60%),
+            radial-gradient(780px 320px at 85% 25%, rgba(232,178,79,.10), transparent 62%),
+            linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,0) 40%);
+    pointer-events:none;
+}
+
+.nyc-newsletter-inner{
+    position:relative;
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:72px;
+    align-items:start;
+}
+
+/* left text */
+.nyc-newsletter-left h3{
+    margin:0 0 16px;
+    font-family: Helvetica, Arial, "Segoe UI", sans-serif;
+    font-size:clamp(40px, 4.4vw, 68px);
+    line-height:1;
+    font-weight:600;
+    text-transform:uppercase;
+    color:#fff;
+    transform:scaleX(1.1);
+    transform-origin:left center;
+}
+
+.nyc-newsletter-left p{
+    margin:0;
+    max-width:56ch;
+    font-size:clamp(18px, 1.7vw, 24px);
+    line-height:1.32;
+    font-weight:650;
+    color:rgba(255,255,255,.95);
+}
+
+/* form */
+.nyc-newsletter-form{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-top:10px;
+}
+
+/* labels (single source of truth) */
+.nyc-newsletter-form label{
+    display:block;
+    margin:12px 0 8px;
+    font-weight:850;
+    font-size:18px;
+    letter-spacing:.2px;
+    color:rgba(255,255,255,.92);
+}
+
+/* inputs (single source of truth) */
+.nyc-newsletter-form input{
+    width:100%;
+    height:54px;            /* email + top fields */
+    padding:0 14px;
+    border-radius:0;
+    background:#000;
+    color:#fff;
+    border:1px solid var(--nyc-border);
+    outline:none;
+    box-shadow:none;
+    font-size:17px;
+    font-weight:500;
+}
+
+.nyc-newsletter-form input:hover{
+    border-color:var(--nyc-border-hover);
+}
+
+.nyc-newsletter-form input:focus{
+    border-color:var(--nyc-border-focus);
+    box-shadow:none;
+}
+
+/* SIGN UP button (primary) */
+.nyc-newsletter-form .nyc-primary-btn{
+    width:100%;
+    height:64px;
+
+    font-size:30px;
+    font-weight:950;
+    letter-spacing:.6px;
+
+    background:#fff;
+    color:#000;
+
+    border:1px solid rgba(255,255,255,.55);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.55);
+    cursor:pointer;
+
+    transition: filter .18s ease;
+}
+
+/* simple hover — NO color inversion */
+.nyc-newsletter-form .nyc-primary-btn:hover{
+    filter: brightness(.94);
+}
+
+/* expand area */
+.nyc-newsletter-extra{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    padding-top:8px;
+
+    max-height:0;
+    opacity:0;
+    transform:translateY(-6px);
+    overflow:hidden;
+    transition:max-height .45s ease, opacity .35s ease, transform .35s ease;
+}
+
+.nyc-newsletter-form.is-expanded .nyc-newsletter-extra{
+    max-height:1200px;
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* hide SIGN UP after expansion */
+.nyc-newsletter-form.is-expanded #newsletterPrimaryBtn{
+    display:none;
+}
+
+/* Country + Zip row */
+.nyc-newsletter-row2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    margin-top:4px;
+}
+
+/* ===== SUBSCRIBE button (final, clean, NYC-style) ===== */
+.nyc-newsletter-form .nyc-submit{
+    margin-top:14px;
+    height:64px;
+
+    font-size:30px;
+    font-weight:950;
+    letter-spacing:.6px;
+
+    background:#fff;
+    color:#000;
+
+    border:1px solid rgba(255,255,255,.55);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.55);
+    cursor:pointer;
+
+    transition:
+            background-color .18s ease,
+            color .18s ease,
+            border-color .18s ease,
+            box-shadow .18s ease;
+}
+
+/* hover / focus = black with strong white border (stays while hovered) */
+.nyc-newsletter-form .nyc-submit:hover,
+.nyc-newsletter-form .nyc-submit:focus-visible{
+    background:#000;
+    color:#fff;
+
+    border-color: rgba(255,255,255,.95);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.95);
+    outline:none;
+}
+
+/* mobile */
+@media (max-width:720px){
+    .nyc-newsletter-inner{ grid-template-columns:1fr; gap:38px; }
+    .nyc-newsletter-row2{ grid-template-columns:1fr; }
+}
+
+/* ===== DIVIDER ===== */
+.nyc-divider{
+    height:1px;
+    background:rgba(255,255,255,.85);
+    box-shadow:0 0 .5px rgba(255,255,255,.6);
+    margin:0 auto;
+    width:min(1200px, calc(100% - 160px));
+}
+
+/* ==================================
+   COUNTRY CUSTOM DROPDOWN (flags)
+   ================================== */
+
+.nyc-country{ position:relative; }
+
+.nyc-countrybox{
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    height: 54px;
+    background: #000;
+
+    border: 1px solid rgba(255,255,255,.55);
+    overflow: hidden;
+}
+
+.nyc-countrybox input{
+    flex: 1;
+    height: 100%;
+    padding: 0 56px 0 16px;
+    border: 0 !important;
+    background: transparent !important;
+    color: #fff;
+    outline: none;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.nyc-country-toggle{
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    width: 48px;
+    height: 100%;
+
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+/* vertical divider (NYC style) */
+.nyc-country-toggle::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 22%;
+    bottom: 22%;
+    width: 1px;
+    background: rgba(255,255,255,.45);
+}
+
+/* arrow icon ONLY (no box) */
+.nyc-country-toggle::after{
+    content: "";
+    width: 12px;
+    height: 7px;
+
+    background:
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E")
+            no-repeat center / contain;
+
+    opacity: .9;
+    transform: translateX(-4px);
+}
+
+/* hover / focus like other inputs */
+.nyc-countrybox:hover{
+    border-color: rgba(255,255,255,.85);
+}
+
+.nyc-countrybox:focus-within{
+    border-color: rgba(255,255,255,.95);
+}
+
+/* dropdown */
+.nyc-countrylist{
+    position:absolute;
+    top:calc(100% + 8px);
+    left:0;
+    right:0;
+    max-height:320px;
+    overflow:auto;
+    background:#000;
+    border:1px solid var(--nyc-border-hover);
+    box-shadow:0 14px 34px rgba(0,0,0,.55);
+    display:none;
+    z-index:9999;
+}
+.nyc-countrylist.open{ display:block; }
+
+.nyc-countryitem{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 12px;
+    cursor:pointer;
+    color:rgba(255,255,255,.92);
+    font-weight:700;
+}
+.nyc-countryitem:hover{ background:rgba(255,255,255,.08); }
+
+.nyc-flag{
+    width:22px;
+    height:16px;
+    object-fit:cover;
+    border:1px solid rgba(255,255,255,.25);
+}
+
+/* ===== autofill control ===== */
+.nyc-newsletter-form input:-webkit-autofill,
+.nyc-countrybox input:-webkit-autofill{
+    -webkit-text-fill-color:#fff !important;
+    -webkit-box-shadow:0 0 0px 1000px #000 inset !important;
+    box-shadow:0 0 0px 1000px #000 inset !important;
+    caret-color:#fff !important;
+    border:1px solid var(--nyc-border) !important;
+    outline:none !important;
+}
+
+/* ================= ERROR MESSAGES (NYC STYLE) ================= */
+.nyc-error{
+    margin-top:6px;
+    font-size:15px;
+    font-weight:700;
+    color:#ff3b30;            /* NYC red */
+    line-height:1.2;
+}
+
+/* Red border on invalid inputs */
+.is-invalid{
+    border-color:#ff3b30 !important;
+}
+
+/* Country box invalid state */
+.nyc-countrybox.is-invalid{
+    border-color:#ff3b30 !important;
+}
+
 /* ================= SOCIAL ICONS (NYC STYLE) ================= */
 
 /* NYC-style social row (NO boxes) */
@@ -467,308 +717,39 @@ a{ text-decoration:none; color:inherit; }
 .nyc-social .ig svg { fill: none; }
 .nyc-social a:not(.ig) svg { fill: currentColor; }
 
+.hidden { display: none !important; }
 
-/* ================= TSA FOOTER ================= */
-
-.tsa-footer{
-    margin-top: 56px;
-    padding: 28px 0;
-    background:#000;
-}
-
-.tsa-lines{
-    height:3px;
-    background:#c62828; /* TSA red */
-    opacity:.95;
-}
-
-.tsa-lines.top{
-    margin-bottom:22px;
-}
-
-.tsa-lines.bottom{
-    margin-top:22px;
-}
-
-.tsa-content{
-    max-width:1200px;
-    margin:0 auto;
-    padding:0 24px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:24px;
-}
-
-/* Text block */
-.tsa-text{
-    display:flex;
-    flex-direction:column;
-    gap:6px;
-}
-
-.tsa-state{
-    font-size:26px;
-    font-weight:900;
-    letter-spacing:.6px;
-    color:#ffffff;
-    text-transform:uppercase;
-}
-
-.tsa-name{
-    font-size:20px;
-    font-weight:800;
-    letter-spacing:.4px;
-    color:#ffffff;
-    opacity:.92;
-}
-
-/* Logo */
-.tsa-logo{
-    height:56px;
-    width:auto;
-    object-fit:contain;
-    filter: brightness(1);
-}
-
-/* Responsive */
-@media (max-width: 720px){
-    .tsa-content{
-        flex-direction:column;
-        align-items:flex-start;
-    }
-
-    .tsa-logo{
-        margin-top:12px;
-        height:48px;
-    }
-
-    .tsa-state{
-        font-size:22px;
-    }
-
-    .tsa-name{
-        font-size:18px;
-    }
-}
-
-
-
-/* ================= TSA BADGE STYLE ================= */
-
-.tsa-badge{
-    max-width: 320px;
-    margin-bottom: 26px;
-    background:#1f3a8a; /* tsa blue color */
-    border-radius: 6px;
-    overflow: hidden;
-    box-shadow: 0 10px 28px rgba(0,0,0,.45);
-}
-
-/* Red bars */
-.tsa-badge-top,
-.tsa-badge-bottom{
-    background:#c62828; /* tsa right color */
-    color:#ffffff;
-    text-align:center;
-    font-weight:900;
-    letter-spacing:.8px;
-    text-transform:uppercase;
-    padding:10px 12px;
-    font-size:14px;
-}
-
-/* Logo area */
-.tsa-badge-logo{
-    background:#1f3a8a;
-    padding:18px 14px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.tsa-badge-logo img{
-    max-width: 100%;
-    height: auto;
-    display:block;
-}
-
-/* Responsive */
-@media (max-width: 720px){
-    .tsa-badge{
-        max-width: 280px;
-    }
-
-    .tsa-badge-top,
-    .tsa-badge-bottom{
-        font-size:13px;
-    }
-}
-
-/* --------------------------------------------------------------------------------- */
-
-/* ===== NEWSLETTER FORM: NYC-LIKE LAYOUT FIX ===== */
-
-/* make every control stretch full width (NYC look) */
-.nyc-newsletter-form input,
-.nyc-newsletter-form select,
-.nyc-newsletter-form button {
+/* success block takes the same “right side” space */
+.nyc-success {
     width: 100%;
 }
 
-/* labels sit above fields, not “floating” */
-.nyc-newsletter-form label{
-    display:block;
-    margin: 10px 0 6px;
-    font-weight: 850;
-    color: rgba(255,255,255,.92);
-}
-
-/* expand area becomes a clean vertical stack */
-.nyc-newsletter-extra{
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    padding-top: 8px;
-}
-
-/* keep your animation, but make it stable */
-.nyc-newsletter-extra{
-    max-height: 0;
-    opacity: 0;
-    transform: translateY(-6px);
-    overflow: hidden;
-    transition: max-height .45s ease, opacity .35s ease, transform .35s ease;
-}
-
-.nyc-newsletter-form.is-expanded .nyc-newsletter-extra{
-    max-height: 1200px;
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Country + Zip row: equal, aligned */
-.nyc-newsletter-row2{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
+/* the NYC looking card */
+.nyc-success-inner {
+    width: 100%;
+    min-height: 210px;
+    padding: 28px 22px;
+    border: 2px solid rgba(120, 200, 170, .55);
+    background: rgba(8, 20, 16, .72);
+    backdrop-filter: blur(6px);
+    text-align: center;
+    display: grid;
+    place-items: center;
     gap: 14px;
-    margin-top: 4px;
 }
 
-/* make inputs feel like NYC: tall + crisp */
-.nyc-newsletter-form input,
-.nyc-newsletter-form select{
-    height: 56px;
-    padding: 0 14px;
-    border-radius: 0;
-    background: #000;
-    border: 2px solid rgba(255,255,255,.55);
-    color: #fff;
-    outline: none;
+.nyc-success-title {
+    font-weight: 900;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    font-size: 18px;
 }
 
-/* subscribe button should be BIG + full width */
-.nyc-submit{
-    margin-top: 14px;
-    height: 64px;
-    font-size: 22px;
-    font-weight: 950;
-    letter-spacing: .6px;
-    background:#fff;
-    color:#000;
-    border:0;
-    cursor:pointer;
+.nyc-success-icon svg {
+    opacity: .95;
 }
 
-.nyc-submit:hover{ filter: brightness(.94); }
-
-/* hide SIGN UP after expansion */
-.nyc-newsletter-form.is-expanded #newsletterPrimaryBtn{
-    display:none;
-}
-
-/* STOP browser autofill from making light-blue fields */
-.nyc-newsletter-form input:-webkit-autofill,
-.nyc-newsletter-form select:-webkit-autofill{
-    -webkit-text-fill-color: #fff !important;
-    -webkit-box-shadow: 0 0 0px 1000px #000 inset !important;
-    box-shadow: 0 0 0px 1000px #000 inset !important;
-    caret-color: #fff !important;
-    border: 2px solid rgba(255,255,255,.55) !important;
-}
-
-/* mobile */
-@media (max-width: 720px){
-    .nyc-newsletter-row2{ grid-template-columns: 1fr; }
-}
-
-
-/* ===== COUNTRY CUSTOM DROPDOWN (flags) ===== */
-/* ===== COUNTRY CUSTOM DROPDOWN (flags) ===== */
-.nyc-country { position: relative; }
-
-.nyc-countrybox{
-    display:flex;
-    align-items:center;
-    border: 2px solid rgba(255,255,255,.55);
-    background:#000;
-    height:56px;
-}
-
-.nyc-countrybox input{
-    border:0 !important;
-    height:100%;
-    padding:0 14px;
-    background:transparent !important;
-    color:#fff;
-    outline:none;
-}
-
-.nyc-country-toggle{
-    height:100%;
-    width:54px;
-    border:0;
-    background:transparent;
-    color:#fff;
-    font-size:18px;
-    cursor:pointer;
-    border-left: 2px solid rgba(255,255,255,.25);
-}
-
-.nyc-countrylist{
-    position:absolute;
-    top: calc(100% + 8px);
-    left:0;
-    right:0;
-    max-height: 320px;
-    overflow:auto;
-    background:#000;
-    border: 2px solid rgba(255,255,255,.55);
-    box-shadow: 0 14px 34px rgba(0,0,0,.55);
-    display:none;
-    z-index: 9999;
-}
-
-.nyc-countrylist.open{ display:block; }
-
-.nyc-countryitem{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    padding:10px 12px;
-    cursor:pointer;
-    color:rgba(255,255,255,.92);
-    font-weight:700;
-}
-
-.nyc-countryitem:hover{
-    background: rgba(255,255,255,.08);
-}
-
-.nyc-flag{
-    width: 22px;
-    height: 16px;
-    object-fit: cover;
-    border: 1px solid rgba(255,255,255,.25);
+.nyc-success-text {
+    font-size: 18px;
+    font-weight: 700;
 }
