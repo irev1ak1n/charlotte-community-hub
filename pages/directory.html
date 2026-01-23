@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Directory • Charlotte Resource Hub</title>
+
+    <!-- reuse your existing styles -->
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/tsa-logo.css">
+</head>
+
+<body>
+
+<!-- simple top bar so you can navigate back -->
+<header class="hero-top">
+    <div class="container top-row">
+        <div class="brand" style="cursor:pointer" onclick="location.href='../index.html'">
+            <div class="logo">
+                <svg viewBox="0 0 64 64" width="28" height="28">
+                    <path d="M10 22l10 12 12-18 12 18 10-12 2 30H8l2-30z" fill="#0a1f44"/>
+                    <path d="M12 52h40v6H12z" fill="#0a1f44"/>
+                </svg>
+            </div>
+            <div class="brand-text">
+                <strong>Charlotte Resource Hub</strong>
+                <span>Directory</span>
+            </div>
+        </div>
+
+        <nav class="nav">
+            <a href="../index.html">Home</a>
+            <a href="./directory.html">Directory</a>
+            <a href="./submit.html">Submit</a>
+            <a href="./highlights.html">Highlights</a>
+        </nav>
+    </div>
+</header>
+
+<main class="home-section" style="padding-top: 110px;">
+    <div class="container">
+
+        <div class="section-head">
+            <h2>Resource Directory</h2>
+            <p class="section-lead">
+                This list loads from <code>data/resources.json</code> (no backend).
+            </p>
+        </div>
+
+        <!-- quick filter/search (optional but useful for testing) -->
+        <div style="display:grid; gap:12px; max-width: 520px; margin: 18px 0 22px;">
+            <input id="resourceSearch" type="text" placeholder="Search by name or category..."
+                   style="height:48px; padding:0 14px; border-radius:10px; border:1px solid rgba(0,0,0,.18);" />
+            <select id="categoryFilter"
+                    style="height:48px; padding:0 14px; border-radius:10px; border:1px solid rgba(0,0,0,.18);">
+                <option value="">All categories</option>
+            </select>
+        </div>
+
+        <!-- status + list -->
+        <div id="resourceStatus" style="margin: 6px 0 12px; font-weight:600;"></div>
+        <ul id="resourceList" style="display:grid; gap:10px; padding-left: 0; list-style:none;"></ul>
+
+    </div>
+</main>
+
+<!-- run the directory loader -->
+<script src="../assets/js/app.js" defer></script>
+</body>
+</html>

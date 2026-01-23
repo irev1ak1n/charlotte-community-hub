@@ -1,0 +1,6 @@
+{
+  "resources": [
+    { "id": 1, "name": "CPCC Tutoring", "category": "Education" },
+    { "id": 2, "name": "Crisis Assistance Ministry", "category": "Housing & Shelters" }
+  ]
+}
