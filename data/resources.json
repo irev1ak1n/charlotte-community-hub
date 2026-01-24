@@ -1,6 +1,8 @@
 {
   "resources": [
-    { "id": 1, "name": "CPCC Tutoring", "category": "Education" },
-    { "id": 2, "name": "Crisis Assistance Ministry", "category": "Housing & Shelters" }
+    { "id": 1, "name": "Inreach NC", "category": "Disability Support" },
+    { "id": 2, "name": "Down Syndrome Association of Greater Charlotte", "category": "Disability Support" }
+    { "id": 3, "name": "Nevins Inc.", "category": "Disability Support" },
+    { "id": 4, "name": "LIFESPAN Services", "category": "Disability Support" },
   ]
 }
