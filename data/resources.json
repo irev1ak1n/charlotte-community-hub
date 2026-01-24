@@ -4,5 +4,9 @@
     { "id": 2, "name": "Down Syndrome Association of Greater Charlotte", "category": "Disability Support" }
     { "id": 3, "name": "Nevins Inc.", "category": "Disability Support" },
     { "id": 4, "name": "LIFESPAN Services", "category": "Disability Support" },
+    { "id": 5, "name": "Healthy Charlotte Alliance", "category": "Health Support" },
+    { "id": 6, "name": "RAIN", "category": "Health Support" },
+    { "id": 7, "name": "Hospitality House of Charlotte", "category": "Health Support" },
+    { "id": 8, "name": "NAMI Family & Friends", "category": "Health Support" },
   ]
 }
