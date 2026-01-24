@@ -8,5 +8,9 @@
     { "id": 6, "name": "RAIN", "category": "Health Support" },
     { "id": 7, "name": "Hospitality House of Charlotte", "category": "Health Support" },
     { "id": 8, "name": "NAMI Family & Friends", "category": "Health Support" },
+    { "id": 9, "name": "Freedom School Partners", "category": "Education & Learning" },
+    { "id": 10, "name": "Learning Help Centers of Charlotte", "category": "Education & Learning" },
+    { "id": 11, "name": "Augustine Literacy Project", "category": "Education & Learning" },
+    { "id": 12, "name": "Urban League", "category": "Education & Learning" },
   ]
 }
