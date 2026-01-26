@@ -123,21 +123,20 @@
     }
 
     // Validate on submit (SUBSCRIBE button submits the form)
-    form.addEventListener("submit", async (e) => {
+    form.addEventListener("submit", (e) => {
         hasTriedSubmit = true;
 
         lockedOpen = true;
         setExpanded(true);
 
-        // stop normal redirect ALWAYS
         e.preventDefault();
-
-        // if invalid -> just show errors and stop
         if (!validateAll()) return;
 
         const submitBtn = form.querySelector(".nyc-submit");
         const originalText = submitBtn ? submitBtn.textContent : "";
         const successBox = document.getElementById("newsletterSuccess");
+
+        if (submitBtn && submitBtn.disabled) return;
 
         try {
             if (submitBtn) {
@@ -145,20 +144,17 @@
                 submitBtn.textContent = "SENDING...";
             }
 
-            // send to Formspree without leaving your page
-            const res = await fetch(form.action, {
-                method: "POST",
-                body: new FormData(form),
-                headers: { Accept: "application/json" },
-            });
+            // Ensure target exists (in case HTML forgot it)
+            form.setAttribute("target", "mlFrame");
 
-            if (!res.ok) throw new Error("Formspree error");
+            // MailerLite silent submit (posts into iframe)
+            form.submit();
 
-            // success: hide the form, show the success card
+            // Show success UI
             form.classList.add("hidden");
             if (successBox) successBox.classList.remove("hidden");
 
-            // optional: clear values
+            // Clear values
             form.reset();
             if (hidden) hidden.value = "";
 
@@ -170,10 +166,12 @@
       </div>`
             );
         } finally {
-            if (submitBtn) {
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalText;
-            }
+            setTimeout(() => {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                }
+            }, 1200);
         }
     });
 

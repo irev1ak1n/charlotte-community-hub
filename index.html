@@ -53,7 +53,7 @@
         </div>
     </div>
 </section>
-<
+
 <section class="home-section" id="services">
     <div class="container">
         <div class="section-head">
@@ -78,24 +78,27 @@
                 </p>
             </div>
 
-            <form class="nyc-newsletter-form" id="newsletterForm" action="https://formspree.io/f/xjggwbey" method="post" novalidate>
-                <input type="hidden" name="_subject" value="New Newsletter Signup – Charlotte Resource Hub" />
-                <input type="hidden" name="message" value="New newsletter signup from Charlotte Resource Hub." />
+            <form class="nyc-newsletter-form" id="newsletterForm"
+                  action="https://assets.mailerlite.com/jsonp/2047723/forms/176992539224573375/subscribe"
+                  method="post"
+                  target="mlFrame"
+                  novalidate>
+
+                <input type="hidden" name="ml-submit" value="1">
 
                 <label for="nycEmail">*Email</label>
-                <input id="nycEmail" name="email" type="email">
+                <input id="nycEmail" name="fields[email]" type="email" required autocomplete="email">
                 <div class="nyc-error" id="errEmail" aria-live="polite"></div>
 
                 <div class="nyc-newsletter-extra" id="newsletterExtra" aria-hidden="true">
                     <label for="nycName">*Full Name</label>
-                    <input id="nycName" name="name" type="text" autocomplete="name">
+                    <input id="nycName" name="fields[name]" type="text" autocomplete="name">
                     <div class="nyc-error" id="errName" aria-live="polite"></div>
 
                     <div class="nyc-newsletter-row2">
                         <div class="nyc-country">
                             <label for="nycCountryInput">*Country</label>
 
-                            <!-- visible input (search) -->
                             <div class="nyc-countrybox" id="countryBox">
                                 <input
                                         id="nycCountryInput"
@@ -107,20 +110,20 @@
                                 <button type="button" class="nyc-country-toggle" aria-label="Toggle country list">▾</button>
                             </div>
 
-                            <input type="hidden" id="nycCountryHidden" name="country">
+                            <input type="hidden" id="nycCountryHidden" name="fields[country]">
                             <div class="nyc-countrylist" id="countryList" role="listbox" aria-hidden="true"></div>
                             <div class="nyc-error" id="errCountry" aria-live="polite"></div>
                         </div>
 
                         <div>
                             <label for="nycZip">*Zip Code</label>
-                            <input id="nycZip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code">
+                            <input id="nycZip" name="fields[zip]" type="text" inputmode="numeric" autocomplete="postal-code">
                             <div class="nyc-error" id="errZip" aria-live="polite"></div>
                         </div>
                     </div>
 
                     <label for="nycPhone">Phone Number (optional)</label>
-                    <input id="nycPhone" name="phone" type="tel" autocomplete="tel">
+                    <input id="nycPhone" name="fields[phone]" type="tel" autocomplete="tel">
 
                     <button type="submit" class="nyc-submit">SUBSCRIBE</button>
 
@@ -136,12 +139,13 @@
                 <button type="button" class="nyc-primary-btn" id="newsletterPrimaryBtn">SIGN UP</button>
             </form>
 
+            <iframe name="mlFrame" id="mlFrame" style="display:none" title="MailerLite hidden frame"></iframe>
+
             <div class="nyc-success hidden" id="newsletterSuccess" role="status" aria-live="polite">
                 <div class="nyc-success-inner">
                     <div class="nyc-success-title">GET READY TO EXPLORE MORE OF CHARLOTTE</div>
 
                     <div class="nyc-success-icon" aria-hidden="true">
-                        <!-- simple mail icon -->
                         <svg viewBox="0 0 64 64" width="64" height="64">
                             <path d="M10 18h44v28H10z" fill="none" stroke="currentColor" stroke-width="3"/>
                             <path d="M10 20l22 16 22-16" fill="none" stroke="currentColor" stroke-width="3"/>
@@ -162,15 +166,15 @@
     <div class="container nyc-footer-main">
 
         <div class="nyc-left-stack">
-            <div class="tsa-badge">
-                <div class="tsa-badge-top">North Carolina</div>
+<!--            <div class="tsa-badge">-->
+<!--                <div class="tsa-badge-top">North Carolina</div>-->
 
-                <div class="tsa-badge-logo">
-                    <img src="assets/img/tsa.jpg" alt="Technology Student Association Logo">
-                </div>
+<!--                <div class="tsa-badge-logo">-->
+<!--                    <img src="assets/img/tsa.jpg" alt="Technology Student Association Logo">-->
+<!--                </div>-->
 
-                <div class="tsa-badge-bottom">Technology Student Association</div>
-            </div>
+<!--                <div class="tsa-badge-bottom">Technology Student Association</div>-->
+<!--            </div>-->
 
             <div class="nyc-social nyc-social--nyc">
                 <a href="#" aria-label="Instagram" class="ig">
